@@ -16,7 +16,13 @@ const MapPopup = ({ setOpenMapPopup, shareLocation }) => {
             <ClickAwayListener onClickAway={() => setOpenMapPopup(false)}>
                 <div className="bg-[#202329] p-8 rounded-md shadow-lg" ref={popUpRef}>
                     <div className="flex justify-center mb-6">
-                        <Image src={mapImage} width={100} height={80} alt="Map" />
+                        <Image
+                            src={mapImage}
+                            width={100}
+                            height={80}
+                            alt="Map"
+                            className="w-auto h-auto"
+                        />
 
                     </div>
                     <div className='flex justify-center mb-4 w-[20rem] text-center'>
