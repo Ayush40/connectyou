@@ -25,17 +25,17 @@ const LandingFooter = () => {
             </div>
           </div>
           <div className="w-[80%] h-[70%] mt-5 md:mt-auto md:w-[95%] lg:w-[50%] md:h-[100%] flex flex-col justify-center cursor-default">
-            <p className="text-md text-center lg:text-left uppercase">Who We Are</p>
+            <p className="text-md text-center lg:text-left uppercase">Who I am?</p>
             <div className="list-none py-2 md:py-5 text-lg text-center lg:text-left md:text-xl uppercase text-c3  ">
-              <Link href='https://github.com/itsamit108' target="_blank" >
+              {/* <Link href='https://github.com/itsamit108' target="_blank" >
                 <li className="py-2 hover:text-white duration-500">Amit Gupta | App Developer</li>
-              </Link>
+              </Link> */}
               <Link href='https://github.com/Ayush40' target="_blank" >
-                <li className="py-2 hover:text-white duration-500">Ayush Aggarwal | Flutter Developer</li>
+                <li className="py-2 hover:text-white duration-500">Ayush Aggarwal | Full Stack Developer</li>
               </Link>
-              <Link href='https://github.com/AishwaryaAtWork' target="_blank" >
+              {/* <Link href='https://github.com/AishwaryaAtWork' target="_blank" >
                 <li className="py-2 hover:text-white duration-500">Aishwarya Pathak | Web Developer</li>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
