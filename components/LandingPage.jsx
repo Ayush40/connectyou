@@ -6,8 +6,7 @@ import WelcomeAnimation from "./WelcomeAnimation";
 // Define the LandingPage component
 const LandingPage = () => {
     return (
-        // Main container with background and styling
-        <div className="h-[90vh] bg-c1 text-white" id="home">
+        <div className="min-h-screen bg-c1 text-white overflow-x-hidden" id="home">
             <Navbar />
             <WelcomeAnimation />
             <Feature />

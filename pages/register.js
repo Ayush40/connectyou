@@ -12,6 +12,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCallback, useEffect } from "react";
+import { FiArrowRight } from "react-icons/fi";
 import { IoLogoGoogle } from "react-icons/io";
 import { auth, db, storage } from "../firebase/firebase";
 import { toast } from "react-toastify";
@@ -156,66 +157,70 @@ const Register = () => {
     ) : (
         <>
             <Navbar />
-            <div className="md:min-h-screen min-h-[120vh] flex justify-center items-center bg-c1 mt-12">
+            <div className="md:min-h-screen min-h-[120vh] flex justify-center items-center bg-gradient-to-b from-c1 via-c2 to-c1 mt-16 relative overflow-hidden px-5">
+                <div className="absolute -left-20 top-20 w-72 h-72 bg-sky-500/20 blur-3xl rounded-full"></div>
+                <div className="absolute -right-24 bottom-10 w-80 h-80 bg-emerald-400/20 blur-3xl rounded-full"></div>
                 <ToastMessage />
 
-                <div className="flex items-center flex-col w-10/12 md:w-auto">
-                    <div className="text-center mb-6">
-                        <div className="text-4xl font-bold">Create New Account</div>
-                        <div className="mt-3 text-c3">
+                <div className="flex items-center flex-col w-full max-w-xl rounded-3xl border border-c5 bg-c1/75 backdrop-blur-md shadow-2xl shadow-black/40 py-8 md:py-10 px-4 md:px-8 z-10">
+                    <div className="text-center mb-6 px-3">
+                        <p className="text-c3 uppercase tracking-[0.2em] text-xs mb-2">Get started</p>
+                        <div className="text-3xl md:text-4xl font-bold">Create New Account</div>
+                        <div className="mt-3 text-c3 text-sm md:text-base">
                             Connect and chat with anyone, anywhere
                         </div>
                     </div>
-                    {/* <div className="flex flex-col items-center gap-2 w-full mt-10 mb-5">
+                    <div className="flex flex-col items-center gap-2 w-full mt-4 mb-5 max-w-md">
                         <div
-                            className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-full h-14 rounded-md cursor-pointer p-[1px]"
+                            className="bg-gradient-to-r from-cyan-400 via-sky-500 to-emerald-500 w-full h-14 rounded-full cursor-pointer p-[1px]"
                             onClick={signInWithGoogle}
                         >
-                            <div className="flex items-center justify-center gap-3 text-white font-semibold bg-c1 w-full h-full rounded-md">
+                            <div className="flex items-center justify-center gap-3 text-white font-semibold bg-c1 w-full h-full rounded-full">
                                 <IoLogoGoogle size={24} />
                                 <span>Create with Google</span>
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-1">
-                        <span className="w-5 h-[1px] bg-c3"></span>
+                    <div className="flex items-center gap-2 w-full max-w-md mb-1">
+                        <span className="flex-1 h-[1px] bg-c5"></span>
                         <span className="text-c3 font-semibold">OR</span>
-                        <span className="w-5 h-[1px] bg-c3"></span>
-                    </div> */}
+                        <span className="flex-1 h-[1px] bg-c5"></span>
+                    </div>
                     <form
                         onSubmit={handleSubmit}
-                        className="flex flex-col items-center gap-3 w-full max-w-md mt-5 px-5"
+                        className="flex flex-col items-center gap-3 w-full max-w-md mt-3"
                     >
                         <input
                             type="text"
                             placeholder="Display Name"
-                            className="w-full h-14 bg-c5 rounded-xl outline-none border-none px-5 text-c3"
+                            className="w-full h-14 bg-c2 rounded-xl outline-none border border-c5 px-5 text-white"
                             autoComplete="off"
                             required
                         />
                         <input
                             type="email"
                             placeholder="Email"
-                            className="w-full h-14 bg-c5 rounded-xl outline-none border-none px-5 text-c3"
+                            className="w-full h-14 bg-c2 rounded-xl outline-none border border-c5 px-5 text-white"
                             autoComplete="off"
                             required
                         />
                         <input
                             type="password"
                             placeholder="Password"
-                            className="w-full h-14 bg-c5 rounded-xl outline-none border-none px-5 text-c3"
+                            className="w-full h-14 bg-c2 rounded-xl outline-none border border-c5 px-5 text-white"
                             autoComplete="off"
                             required
                         />
                         <input
                             type="password"
                             placeholder="Confirm Password"
-                            className="w-full h-14 bg-c5 rounded-xl outline-none border-none px-5 text-c3"
+                            className="w-full h-14 bg-c2 rounded-xl outline-none border border-c5 px-5 text-white"
                             autoComplete="off"
                             required
                         />
-                        <button className="mt-4 w-full h-14 rounded-xl outline-none text-base font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition duration-300 transform hover:scale-105">
+                        <button className="mt-3 w-full h-14 rounded-full outline-none text-base font-semibold bg-gradient-to-r from-cyan-400 via-sky-500 to-emerald-500 text-black transition duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-2">
                             Sign Up
+                            <FiArrowRight />
                         </button>
                     </form>
                     <div className="flex justify-center gap-1 text-c3 mt-5">

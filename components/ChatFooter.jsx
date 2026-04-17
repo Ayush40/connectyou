@@ -30,7 +30,8 @@ import SendMoneyPopup from "./popup/SendMoneyPopup";
 
 
 
-const gf = new GiphyFetch("2Gx7SvpPvoHFrCb0ho52ILe7S7c5487G");
+const giphyApiKey = process.env.NEXT_PUBLIC_GIPHY_API_KEY;
+const gf = giphyApiKey ? new GiphyFetch(giphyApiKey) : null;
 
 const ChatFooter = () => {
   const [showImojiPicker, setShowImojiPicker] = useState(false);
@@ -116,8 +117,17 @@ const ChatFooter = () => {
 
   useEffect(() => {
     const fetchGifs = async () => {
-      const { data } = await gf.trending({ limit: 50 });
-      setGifs(data);
+      if (!gf) {
+        toast.error("GIF search is unavailable. Add NEXT_PUBLIC_GIPHY_API_KEY.");
+        return;
+      }
+
+      try {
+        const { data } = await gf.trending({ limit: 50 });
+        setGifs(data);
+      } catch (error) {
+        toast.error("Unable to load GIFs right now.");
+      }
     };
 
     if (showGifPicker) {
@@ -131,8 +141,16 @@ const ChatFooter = () => {
   };
 
   const fetchGifs = async (query) => {
-    const { data } = await gf.search(query, { limit: 50 });
-    setGifs(data);
+    if (!gf) {
+      return;
+    }
+
+    try {
+      const { data } = await gf.search(query, { limit: 50 });
+      setGifs(data);
+    } catch (error) {
+      toast.error("Unable to search GIFs right now.");
+    }
   };
 
   const shareLocation = () => {
